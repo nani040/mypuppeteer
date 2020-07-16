@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 function getDetailsFromInstaPage(url, callback){
     (async () => {
         let browser = await puppeteer.launch({
-             headless: false,
+             headless: true,
              args: ['--no-sandbox', '--disable-setuid-sandbox']
           });
         let page = await browser.newPage(); 

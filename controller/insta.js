@@ -4,7 +4,7 @@ function getDetailsFromInstaPage(url, callback){
     (async () => {
         let browser = await puppeteer.launch();
         let page = await browser.newPage(); 
-        await page.goto(url); // {waitUntil: 'networkidle2'}
+        await page.goto(url, {waitUntil: 'networkidle2'});
         let data = await page.evaluate(()=>{
             let instapage = document.querySelector('div[class="nZSzR"] > h2').innerText
             let someDetails = [... document.querySelectorAll('span[class="g47SY "]')]

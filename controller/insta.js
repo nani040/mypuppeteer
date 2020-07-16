@@ -8,9 +8,9 @@ function getDetailsFromInstaPage(url, callback){
         let page = await browser.newPage(); 
         await page.goto(url, {waitUntil: 'networkidle2'});
         let data = await page.evaluate(()=>{
-            let instapage = document.querySelector('div[class="nZSzR"] > h2').innerText
+            let instapage = document.querySelector('div[class="nZSzR"] > h2').innerHTML
             let someDetails = [... document.querySelectorAll('span[class="g47SY "]')]
-            let [post , followers, following] = someDetails.map(h => h.innerText)
+            let [post , followers, following] = someDetails.map(h => h.innerHTML)
             return {instapage, post , followers, following}
         })        
         await browser.close();

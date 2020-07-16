@@ -2,7 +2,10 @@ const puppeteer = require('puppeteer');
 
 function getDetailsFromInstaPage(url, callback){
     (async () => {
-        let browser = await puppeteer.launch();
+        let browser = await puppeteer.launch({
+             headless: false,
+             args: ['--no-sandbox', '--disable-setuid-sandbox']
+          });
         let page = await browser.newPage(); 
         await page.goto(url, {waitUntil: 'networkidle2'});
         let data = await page.evaluate(()=>{

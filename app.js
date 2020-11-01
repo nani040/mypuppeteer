@@ -16,3 +16,5 @@ app.listen(port,function(){
     console.log('server on port info: '+config.port)
     
 });
+
+// for test x=10
